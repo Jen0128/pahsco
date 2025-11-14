@@ -1,0 +1,191 @@
+/* ⭐⭐⭐ 最關鍵的 CSS - 左右布局核心樣式 ⭐⭐⭐ */
+
+/* 主要布局 - 這是最重要的！ */
+.main-layout-grid {
+  display: grid;
+  grid-template-columns: 400px 1fr;  /* 左側 400px，右側自適應 */
+  gap: 1rem;
+  align-items: start;
+}
+
+/* 當沒有緊急提醒時，右側佔滿全寬 */
+.main-layout-grid.single-column {
+  grid-template-columns: 1fr;
+}
+
+/* 左側區塊 - 固定顯示 */
+.left-section {
+  position: sticky;
+  top: 1rem;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+}
+
+/* 右側區塊 */
+.right-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ⭐ 響應式：手機/平板改為上下堆疊 */
+@media (max-width: 968px) {
+  .main-layout-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .left-section {
+    position: static;
+    max-height: none;
+  }
+}
+
+/* ========== 以下是優化樣式（可選） ========== */
+
+/* 小型手機優化 */
+@media (max-width: 480px) {
+  .alert-header h3 {
+    font-size: 0.875rem;
+  }
+  
+  .card-title {
+    font-size: 0.9375rem;
+  }
+  
+  .stat-card {
+    padding: 0.625rem;
+  }
+  
+  .stat-value {
+    font-size: 1.25rem;
+  }
+  
+  .stat-label {
+    font-size: 0.75rem;
+  }
+}
+
+/* 進度條容器 */
+.progress-bar-container {
+  margin-bottom: 1rem;
+}
+
+/* 統計網格 */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+/* 緊急提醒區塊 */
+.alert-box {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.alert-box .space-y-3 {
+  flex: 1;
+}
+
+/* 任務進度卡片 */
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card .card-header {
+  flex-shrink: 0;
+}
+
+/* 左側滾動條美化 */
+.left-section::-webkit-scrollbar {
+  width: 6px;
+}
+
+.left-section::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.left-section::-webkit-scrollbar-thumb {
+  background: #dc2626;
+  border-radius: 3px;
+}
+
+.left-section::-webkit-scrollbar-thumb:hover {
+  background: #b91c1c;
+}
+
+/* 大螢幕優化 */
+@media (min-width: 1400px) {
+  .main-layout-grid {
+    grid-template-columns: 450px 1fr;
+  }
+}
+
+@media (min-width: 1920px) {
+  .main-layout-grid {
+    grid-template-columns: 500px 1fr;
+  }
+}
+
+/* 任務統計條 */
+.task-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+/* 確保右側內容不會太窄 */
+.right-section {
+  min-width: 0;
+}
+
+/* 左側緊急提醒的最小寬度 */
+@media (min-width: 969px) {
+  .left-section {
+    min-width: 350px;
+  }
+}
+
+/* 中等螢幕優化 */
+@media (min-width: 969px) and (max-width: 1199px) {
+  .main-layout-grid {
+    grid-template-columns: 350px 1fr;
+  }
+}
+
+/* 打印優化 */
+@media print {
+  .main-layout-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
+  }
+  
+  .left-section {
+    position: static;
+    max-height: none;
+    page-break-inside: avoid;
+    margin-bottom: 1rem;
+  }
+  
+  .right-section {
+    page-break-before: auto;
+  }
+  
+  .alert-actions {
+    display: none;
+  }
+}
+
+/* 確保卡片在右側區塊中正確顯示 */
+.right-section .card {
+  width: 100%;
+}
+
+/* 優化任務清單在右側的顯示 */
+.right-section .space-y-4 {
+  width: 100%;
+}
