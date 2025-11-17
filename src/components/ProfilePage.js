@@ -25,20 +25,7 @@ const ProfilePage = ({ nurse, patients }) => {
                nurse.shift === 'evening' ? '小夜 15:00-23:00' : '大夜 23:00-07:00'}
             </span>
           </div>
-          <div className="detail-row">
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#6b7280' }}>
-              <MapPin size={16} />
-              <span>負責病房</span>
-            </div>
-            <span className="detail-value">{nurse.ward}</span>
-          </div>
-          <div className="detail-row">
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#6b7280' }}>
-              <Award size={16} />
-              <span>照護病患</span>
-            </div>
-            <span className="detail-value">{patients.length}位</span>
-          </div>
+
         </div>
       </div>
 
@@ -52,51 +39,6 @@ const ProfilePage = ({ nurse, patients }) => {
           <div className="stat-value">{patients.filter(p => !p.alert).length}</div>
           <div className="stat-label">狀況穩定</div>
         </div>
-      </div>
-
-      {/* 我的病患列表 */}
-      <div className="card">
-        <h2 className="card-title">🏥 我的病患</h2>
-        <p className="card-subtitle" style={{ marginBottom: '1rem' }}>3樓西側 301-308床</p>
-      </div>
-
-      <div className="space-y-3">
-        {patients.map(patient => (
-          <div key={patient.id} className={`patient-card ${patient.alert ? 'alert' : ''}`}>
-            <div className="patient-card-header">
-              <div>
-                <div className="patient-room">
-                  <span className="patient-room-number">🛏️ {patient.room}床</span>
-                  {patient.alert && (
-                    <span className="patient-alert-badge">
-                      🔴 需特別注意
-                    </span>
-                  )}
-                </div>
-                <div className="patient-name">{patient.name} ({patient.gender}/{patient.age}歲)</div>
-              </div>
-              {patient.tasks > 0 && (
-                <span className="patient-tasks-badge">
-                  ⚠️ {patient.tasks}項待辦
-                </span>
-              )}
-            </div>
-            
-            <div className="patient-diagnosis">
-              <span>診斷：</span>{patient.diagnosis}
-            </div>
-
-            {patient.tasks === 0 && (
-              <div className="patient-status completed">
-                ✅ 今日任務已完成
-              </div>
-            )}
-            
-            <button className="btn btn-primary btn-full">
-              查看詳情
-            </button>
-          </div>
-        ))}
       </div>
 
       {/* 系統資訊 */}

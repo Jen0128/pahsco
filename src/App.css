@@ -110,6 +110,16 @@ body {
   padding: 0.625rem 1.25rem;
   border-radius: 0.5rem;
   backdrop-filter: blur(8px);
+  cursor: default;
+}
+
+.header-info.clickable-header {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.header-info.clickable-header:hover {
+  background-color: rgba(255, 255, 255, 0.15); /* Hover 效果 */
 }
 
 .nurse-name-simple {
@@ -118,7 +128,7 @@ body {
   color: var(--color-linen);
 }
 
-.current-time {
+.current-datetime {
   font-size: 0.9375rem;
   font-weight: 400;
   color: var(--color-linen);
@@ -1315,6 +1325,7 @@ body {
   padding: 0.5rem;
   border-radius: 0.25rem;
   transition: all 0.3s ease;
+  z-index: 1001;
 }
 
 .close-button:hover {
@@ -1336,6 +1347,14 @@ body {
   justify-content: center;
   z-index: 1000;
   padding: 1rem;
+}
+
+.modal-content.profile-modal {
+    max-width: 400px; /* 設置 Profile Page 模態框的寬度 */
+    max-height: 90vh;
+    width: 100%;
+    /* 移除頂部 Padding，讓 ProfilePage 內容更貼合 */
+    padding: 0; 
 }
 
 .modal-content {
@@ -1392,6 +1411,115 @@ body {
 .left-section::-webkit-scrollbar-thumb:hover {
   background: #A66B56;
 }
+
+/* ------------------ PatientsPage 相關樣式 (新增) ------------------ */
+
+/* 病床號碼徽章 */
+.bed-number-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  font-size: 1.125rem;
+  color: var(--color-linen);
+  background-color: var(--color-earth-dark);
+  flex-shrink: 0;
+}
+
+/* 醫材項目卡片 - 包含展開狀態的樣式調整 */
+.material-item-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--color-sand);
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+}
+
+.material-item-card.expanded-record {
+  background-color: #f0f8ff; /* 淺藍色背景，用於展開的記錄卡 */
+  border-color: #dbeafe;
+}
+
+.material-item-header {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s ease;
+}
+
+.material-item-card:hover:not(.expanded-record) .material-item-header {
+  background-color: var(--color-sand);
+}
+
+/* 醫材狀態指示燈 */
+.material-status-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+  /* 顏色由 JS 內聯樣式控制 */
+}
+
+.status-badge-small {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* 醫材時間軸內容 */
+.material-timeline-content {
+  padding: 0 1rem 1rem 2.5rem; /* 為了讓內容對齊左側的線 */
+  background: var(--bg-card);
+  border-top: 1px solid var(--color-sand);
+}
+
+.timeline-event {
+  display: flex;
+  gap: 1rem;
+  padding: 0.75rem 0 0.75rem 0;
+  border-left: 2px solid var(--color-sand); /* 時間軸線 */
+  position: relative;
+  /* 為了對齊，需要調整負的 margin-left */
+  margin-left: -1rem; 
+  padding-left: 1rem;
+}
+
+.timeline-event:last-child {
+    border-left: 2px solid transparent; /* 隱藏最後一項的線 */
+}
+
+.timeline-event:before {
+  content: '';
+  position: absolute;
+  left: -6px; /* 調整位置到線條上 */
+  top: 1.15rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--color-earth-dark); 
+  border: 3px solid var(--bg-card); /* 讓圓點從背景中凸顯 */
+  z-index: 1;
+}
+
+.event-time {
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  color: var(--color-earth-dark);
+  font-size: 0.8125rem;
+  flex-shrink: 0;
+  width: 3rem;
+}
+
+.event-details {
+    flex: 1;
+}
+
 
 /* 響應式設計 */
 @media (max-width: 968px) {
@@ -1452,7 +1580,7 @@ body {
     font-size: 0.8125rem;
   }
 
-  .current-time {
+  .current-datetime {
     font-size: 0.75rem;
     padding: 0.25rem 0.5rem;
   }

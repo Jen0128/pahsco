@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { Home, Package, RefreshCw, User, LogOut } from 'lucide-react';
+import { Home, Package, RefreshCw, User, LogOut, X } from 'lucide-react';
 import './App.css';
 
 // 導入數據
-import { mockData, getShiftText } from './data/mockData';
+import { mockData } from './data/mockData';
 
 // 導入頁面組件
 import HomePage from './components/HomePage';
 import HandoverPage from './components/HandoverPage';
 import SuppliesPage from './components/SuppliesPage';
-import ProfilePage from './components/ProfilePage';
+import PatientsPage from './components/PatientsPage'; 
+import ProfilePage from './components/ProfilePage'; // 重新啟用 ProfilePage
 
 export default function NursingSystem() {
   const [currentPage, setCurrentPage] = useState('home');
   const [currentTime, setCurrentTime] = useState(new Date());
+  // [新增狀態] 控制 Profile 模態頁的顯示/隱藏
+  const [showProfileModal, setShowProfileModal] = useState(false);
 
   // 更新時間
   useEffect(() => {
@@ -46,7 +49,7 @@ export default function NursingSystem() {
 
   return (
     <div className="app-container">
-      {/* 頂部導航 - 簡化版 */}
+      {/* 頂部導航 */}
       <div className="top-nav">
         <div className="top-nav-content">
           {/* 左側：系統名稱 */}
@@ -59,11 +62,14 @@ export default function NursingSystem() {
           </div>
 
           {/* 右側：護理師、時間、登出 */}
-          
-          <div className="header-info">
+          {/* [修改] 讓 header-info 成為點擊區域，開啟 Profile Modal */}
+          <div 
+            className="header-info clickable-header" // 新增 clickable-header 類別
+            onClick={() => setShowProfileModal(true)}
+          >
             <span className="nurse-name-simple">👤 {mockData.nurse.name}</span>
             <span className="current-datetime">{formatDateTime(currentTime)}</span>
-            <button className="logout-button" onClick={handleLogout}>
+            <button className="logout-button" onClick={(e) => { e.stopPropagation(); handleLogout(); }}>
               <LogOut size={18} />
             </button>
           </div>
@@ -82,15 +88,13 @@ export default function NursingSystem() {
         )}
         {currentPage === 'handover' && <HandoverPage handover={mockData.handover} />}
         {currentPage === 'supplies' && <SuppliesPage supplies={mockData.supplies} />}
+        {/* 'profile' 分頁使用 PatientsPage */}
         {currentPage === 'profile' && (
-          <ProfilePage 
-            nurse={mockData.nurse} 
-            patients={mockData.patients}
-          />
+          <PatientsPage /> 
         )}
       </div>
-
-      {/* 底部導航 */}
+      
+      {/* 底部導航 (略) */}
       <div className="bottom-nav">
         <div className="bottom-nav-content">
           <button
@@ -126,6 +130,29 @@ export default function NursingSystem() {
           </button>
         </div>
       </div>
+      
+      {/* [新增] Profile 模態頁 */}
+      {showProfileModal && (
+        <div className="modal-overlay" onClick={() => setShowProfileModal(false)}>
+          {/* 使用 modal-content 類別來承載 ProfilePage */}
+          <div className="modal-content profile-modal" onClick={(e) => e.stopPropagation()}>
+            {/* 關閉按鈕 */}
+            <button 
+              onClick={() => setShowProfileModal(false)} 
+              className="close-button"
+            >
+              <X size={24} />
+            </button>
+
+            <div className="modal-body" style={{ paddingTop: '0.5rem' }}>
+              <ProfilePage 
+                nurse={mockData.nurse} 
+                patients={mockData.patients}
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
