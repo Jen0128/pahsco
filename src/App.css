@@ -1,4 +1,3 @@
-/* 基礎樣式重置 - 無印侘寂風格 */
 * {
   margin: 0;
   padding: 0;
@@ -1325,7 +1324,6 @@ body {
   padding: 0.5rem;
   border-radius: 0.25rem;
   transition: all 0.3s ease;
-  z-index: 1001;
 }
 
 .close-button:hover {
@@ -1349,14 +1347,6 @@ body {
   padding: 1rem;
 }
 
-.modal-content.profile-modal {
-    max-width: 400px; /* 設置 Profile Page 模態框的寬度 */
-    max-height: 90vh;
-    width: 100%;
-    /* 移除頂部 Padding，讓 ProfilePage 內容更貼合 */
-    padding: 0; 
-}
-
 .modal-content {
   background: var(--bg-card);
   border-radius: 0.5rem;
@@ -1367,6 +1357,14 @@ body {
   overflow-y: auto;
   position: relative;
   border: 1px solid rgba(139, 121, 102, 0.08);
+}
+
+.modal-content.profile-modal {
+    max-width: 400px; /* 設置 Profile Page 模態框的寬度 */
+    max-height: 90vh;
+    width: 100%;
+    /* 移除頂部 Padding，讓 ProfilePage 內容更貼合 */
+    padding: 0; 
 }
 
 .modal-header {
@@ -1412,7 +1410,7 @@ body {
   background: #A66B56;
 }
 
-/* ------------------ PatientsPage 相關樣式 (新增) ------------------ */
+/* ------------------ PatientsPage 相關樣式 (保留) ------------------ */
 
 /* 病床號碼徽章 */
 .bed-number-badge {
@@ -1431,6 +1429,7 @@ body {
   border: 1px solid var(--color-sand);
   border-radius: 0.5rem;
   transition: all 0.2s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03); /* 輕微陰影 */
 }
 
 .material-item-card.expanded-record {
@@ -1520,6 +1519,226 @@ body {
     flex: 1;
 }
 
+/* ------------------ SuppliesPage 相關樣式 (新增/修改) ------------------ */
+
+/* 效期和調撥卡片容器 */
+.expiry-item {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-subtle);
+    border: 1px solid;
+}
+
+.expiry-item.critical-expiry {
+    background-color: #fef2f2; /* 淺紅 */
+    border-color: #fecaca;
+}
+
+.expiry-item.warning-expiry {
+    background-color: #fefce8; /* 淺黃 */
+    border-color: #fde047;
+}
+
+.expiry-item.normal-expiry {
+    background-color: #f0fdf4; /* 淺綠 */
+    border-color: #bbf7d0;
+}
+
+.item-details-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.item-name-bold {
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.item-expiry-warning {
+    font-size: 0.875rem;
+    color: var(--color-rust); /* 主要警告色 */
+    font-weight: 400;
+}
+
+.item-suggestion {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+/* 跨科室調撥樣式 */
+.transfer-item {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-subtle);
+    border: 1px solid;
+    margin-bottom: 0.75rem;
+}
+
+.transfer-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.transfer-item.transfer-out {
+    background-color: #f0f8ff; /* 淺藍色背景 */
+    border-color: #dbeafe;
+}
+
+.transfer-item.transfer-in {
+    background-color: #f0fdf4; /* 淺綠色背景 */
+    border-color: #bbf7d0;
+}
+
+.transfer-badge {
+    padding: 0.25rem 0.6rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.transfer-low {
+    background-color: #fee2e2; /* 淺紅 */
+    color: #dc2626;
+}
+
+.department-list .dept-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.375rem 0;
+    font-size: 0.875rem;
+    border-bottom: 1px dashed rgba(139, 121, 102, 0.1);
+}
+
+.department-list .dept-item:last-child {
+    border-bottom: none;
+}
+
+.dept-name {
+    color: var(--text-secondary);
+}
+
+/* 舊版庫存列表樣式 */
+.inventory-category-section {
+    background: var(--bg-secondary);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.expandable-header-compact {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: var(--color-sand);
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.inventory-list-content {
+    padding: 0.5rem 1rem;
+    border-top: 1px solid rgba(139, 121, 102, 0.08);
+}
+
+.inventory-item-row {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed rgba(139, 121, 102, 0.1);
+    font-size: 0.875rem;
+}
+
+.inventory-item-row:last-child {
+    border-bottom: none;
+}
+
+.inventory-status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 0.75rem;
+    flex-shrink: 0;
+}
+
+.inventory-name {
+    flex-grow: 1;
+    font-weight: 400;
+}
+
+.inventory-stock {
+    font-weight: 500;
+    color: var(--color-earth-dark);
+    margin-left: 0.5rem;
+    flex-shrink: 0;
+    width: 4rem;
+    text-align: right;
+}
+
+.inventory-detail {
+    color: var(--text-secondary);
+    font-size: 0.8125rem;
+    width: 5rem;
+    text-align: right;
+    margin-left: 0.5rem;
+    flex-shrink: 0;
+}
+
+.view-more-link {
+    text-align: center;
+    font-size: 0.8125rem;
+    color: var(--color-earth-medium);
+    padding: 0.5rem 0;
+    cursor: pointer;
+}
+
+.watch-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background-color: var(--bg-card);
+    border-radius: 0.375rem;
+    border: 1px solid var(--color-sand);
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+
+.watch-item:hover {
+    background-color: var(--color-linen);
+}
+
+.watch-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.watch-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.watch-name {
+    font-weight: 500;
+    font-size: 0.9375rem;
+}
+
+.watch-detail {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
 
 /* 響應式設計 */
 @media (max-width: 968px) {
