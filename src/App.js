@@ -54,9 +54,9 @@ export default function NursingSystem() {
         <div className="top-nav-content">
           {/* 左側：系統名稱 */}
           <div className="top-nav-left">
-            <div className="top-nav-logo">⏳</div>
+            <div className="top-nav-logo">🔆</div>
             <div>
-              <h1 className="top-nav-title">錸創時光</h1>
+              <h1 className="top-nav-title">護理晴報</h1>
               <p className="top-nav-subtitle">護理工作系統</p>
             </div>
           </div>
@@ -115,18 +115,18 @@ export default function NursingSystem() {
             )}
           </button>
           <button
-            onClick={() => setCurrentPage('handover')}
-            className={`nav-button ${currentPage === 'handover' ? 'active' : ''}`}
-          >
-            <div className="nav-icon"><RefreshCw size={24} /></div>
-            <span className="nav-label">交班</span>
-          </button>
-          <button
             onClick={() => setCurrentPage('profile')}
             className={`nav-button ${currentPage === 'profile' ? 'active' : ''}`}
           >
             <div className="nav-icon"><User size={24} /></div>
             <span className="nav-label">病患</span>
+          </button>
+          <button
+            onClick={() => setCurrentPage('handover')}
+            className={`nav-button ${currentPage === 'handover' ? 'active' : ''}`}
+          >
+            <div className="nav-icon"><RefreshCw size={24} /></div>
+            <span className="nav-label">交班</span>
           </button>
         </div>
       </div>

@@ -50,7 +50,9 @@ const ProfilePage = ({ nurse, patients }) => {
         </div>
         <div className="detail-row">
           <span className="detail-label">最後登入</span>
-          <span className="detail-value">2025/11/07 14:30</span>
+          <span className="detail-value">
+            {new Date().toLocaleString("zh-TW", { hour12: false })}
+          </span>
         </div>
         <button className="btn btn-secondary btn-full" style={{ marginTop: '1rem' }}>
           登出系統
