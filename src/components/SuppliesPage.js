@@ -614,23 +614,7 @@ const SuppliesPage = ({ supplies }) => {
   // 主頁面 - 替換後的內容
   return (
     <div className="space-y-4">
-      {/* 搜尋與快速操作 (頂部快捷按鈕) - 為了響應式佈局，將其放在 card 外 */}
-      <div style={{ padding: '0 1.5rem', display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
-        <button 
-          onClick={() => setShowOrderForm(true)}
-          className="btn btn-primary"
-          style={{ padding: '0.625rem 1.25rem', whiteSpace: 'nowrap' }}
-        >
-          🛒 申請補貨
-        </button>
-        <button 
-          onClick={() => setShowScanner(true)}
-          className="btn btn-primary"
-          style={{ padding: '0.625rem 1.25rem', backgroundColor: 'var(--color-success)', borderColor: 'var(--color-success)', whiteSpace: 'nowrap' }}
-        >
-          <Camera size={18} /> 掃碼使用
-        </button>
-      </div>
+      
 
       {/* 1. 跨科室庫存調撥 (修改: 調整內邊距) */}
       <div className="card">
