@@ -85,7 +85,6 @@ const categoryMap = {
 // --------------------------------------------------------
 const SuppliesPage = ({ supplies }) => {
   const [selectedSupply, setSelectedSupply] = useState(null);
-  const [showScanner, setShowScanner] = useState(false);
   const [showOrderForm, setShowOrderForm] = useState(false);
   const [manualItems, setManualItems] = useState([]);
   
@@ -132,42 +131,7 @@ const SuppliesPage = ({ supplies }) => {
           supply.id.toLowerCase().includes(searchTerm.toLowerCase()) // 允許搜尋 ID/條碼
       );
 
-  // 掃碼介面 (保留原樣)
-  if (showScanner) {
-    return (
-      <div className="space-y-4">
-        <div className="card scanner-container" style={{ position: 'relative' }}>
-          <button 
-            onClick={() => setShowScanner(false)}
-            className="close-button"
-          >
-            <X size={24} />
-          </button>
-          <div className="scanner-icon">
-            <Camera size={64} />
-          </div>
-          <h2 className="scanner-title">📷 掃描物料條碼</h2>
-          <p className="scanner-desc">將相機對準物料條碼進行掃描</p>
-          
-          <div className="scanner-area">
-            <div className="scanner-box">
-              <p>掃描區域</p>
-            </div>
-          </div>
-
-          <button 
-            onClick={() => {
-              alert('模擬掃描成功！已記錄使用');
-              setShowScanner(false);
-            }}
-            className="btn btn-primary btn-full"
-          >
-            模擬掃描成功
-          </button>
-        </div>
-      </div>
-    );
-  }
+  
 
   // 補貨申請表單 (保留原樣)
   if (showOrderForm) {
@@ -904,38 +868,7 @@ const SuppliesPage = ({ supplies }) => {
         )}
       </div>
       
-      {/* 浮動掃碼按鈕 - 保留原樣 */}
-      <button 
-        onClick={() => setShowScanner(true)}
-        style={{
-          position: 'fixed',
-          bottom: '80px',
-          right: '1.5rem',
-          width: '64px',
-          height: '64px',
-          borderRadius: '50%',
-          backgroundColor: '#10b981',
-          color: 'white',
-          border: 'none',
-          boxShadow: '0 4px 12px rgba(16, 185, 129, 0.4)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          cursor: 'pointer',
-          zIndex: 1000,
-          transition: 'all 0.2s'
-        }}
-        onMouseOver={(e) => {
-          e.currentTarget.style.transform = 'scale(1.1)';
-          e.currentTarget.style.boxShadow = '0 6px 16px rgba(16, 185, 129, 0.5)';
-        }}
-        onMouseOut={(e) => {
-          e.currentTarget.style.transform = 'scale(1)';
-          e.currentTarget.style.boxShadow = '0 4px 12px rgba(16, 185, 129, 0.4)';
-        }}
-      >
-        <Camera size={28} />
-      </button>
+      
     </div>
   );
 };
