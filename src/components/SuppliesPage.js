@@ -328,7 +328,7 @@ const SuppliesPage = ({ supplies }) => {
               )}
             </div>
   
-            <form onSubmit={(e) => { e.preventDefault(); alert('補貨申請已送出'); setShowOrderForm(false); setManualItems([]); }}>
+            <form onSubmit={(e) => { e.preventDefault(); alert('申請已送出'); setShowOrderForm(false); setManualItems([]); }}>
               <div className="form-group">
                 <label className="form-label">需求日期</label>
                 <input type="date" className="form-input" />
