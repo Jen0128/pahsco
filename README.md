@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# 🏥 Pahsco 護理智慧交班與病房管理系統
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)]()
+[![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)]()
 
-## Available Scripts
+> 這是一個專為護理人員設計的臨床管理系統雛形，旨在簡化繁瑣的交班流程、提升醫材管理效率，並提供清晰的病患狀態視覺化介面。
 
-In the project directory, you can run:
+🔗 **[點此查看線上 Live Demo](https://pahsco.vercel.app)** *(請替換為你的實際 Vercel 網址)*
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## ✨ 核心功能 (Features)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* **🔄 智慧交班系統 (Smart Handover)**
+    * 自動統整病患清單，將交接事項依照輕重緩急分類（需觀察、需處理、需補貨）。
+    * 支援護理師針對個別病患手動新增補充筆記。
+* **📦 醫材與物料管理 (Supplies Management)**
+    * 追蹤各病床的醫材使用狀況與消耗進度。
+    * 庫存低於安全水位時自動警示，方便下一班護理人員進行補貨。
+* **📸 臨床拍照記錄 (Photo Capture)**
+    * 支援快速啟動相機進行患部或傷口拍攝記錄，並可即時上傳與標註。
+* **📇 病患資訊儀表板 (Patient Profile)**
+    * 整合病患基本資料、今日排程與醫囑，提供直覺的 UI 介面。
 
-### `npm test`
+## 🛠️ 技術棧 (Tech Stack)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* **前端框架:** React.js (Create React App)
+* **樣式與 UI:** 原生 CSS3, `lucide-react` (圖示庫)
+* **部署平台:** Vercel
 
-### `npm run build`
+## 🚀 本地端安裝與執行 (Getting Started)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+如果您希望在本地端運行此專案，請依照以下步驟操作：
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. **Clone 專案到本地端**
+   ```bash
+   git clone [https://github.com/Jen0128/pahsco.git](https://github.com/Jen0128/pahsco.git)
