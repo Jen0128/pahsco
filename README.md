@@ -5,7 +5,7 @@
 
 > 這是一個專為護理人員設計的臨床管理系統雛形，旨在簡化繁瑣的交班流程、提升醫材管理效率，並提供清晰的病患狀態視覺化介面。
 
-🔗 **[點此查看線上 Live Demo](https://pahsco.vercel.app)** *(請替換為你的實際 Vercel 網址)*
+🔗 **[點此查看線上 Live Demo](https://pahsco.vercel.app)** 
 
 ---
 
@@ -35,3 +35,16 @@
 1. **Clone 專案到本地端**
    ```bash
    git clone [https://github.com/Jen0128/pahsco.git](https://github.com/Jen0128/pahsco.git)
+
+2. **進入專案目錄**
+   ```bash
+   cd pahsco
+
+3. **安裝相依套件**
+   ```bash
+   npm install
+
+4. **啟動開發伺服器**
+   ```bash
+   npm start
+伺服器啟動後，請打開瀏覽器並前往 http://localhost:3000 預覽。
