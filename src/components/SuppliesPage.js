@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // 確保所有使用的 Lucide-React 圖示都被正確導入：
-import { Camera, Search, ChevronRight, X, AlertTriangle, Plus, Trash2, RefreshCw, Calendar, Check, List } from 'lucide-react';
+import { Search, ChevronRight, X, Plus, Trash2, RefreshCw, Calendar, List } from 'lucide-react';
 import { mockData } from '../data/mockData';
 
 // --------------------------------------------------------
