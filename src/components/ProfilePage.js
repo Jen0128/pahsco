@@ -1,5 +1,5 @@
 import React from 'react';
-import { User, MapPin, Calendar, Award } from 'lucide-react';
+import Calendar from 'lucide-react';
 
 const ProfilePage = ({ nurse, patients }) => {
   return (
