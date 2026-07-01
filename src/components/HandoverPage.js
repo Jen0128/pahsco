@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Package, Clock, Check, AlertTriangle, MessageSquare, List, Zap, ChevronUp } from 'lucide-react';
+import { Package, Check, AlertTriangle, MessageSquare, List, Zap, ChevronUp } from 'lucide-react';
 import { mockData } from '../data/mockData';
 import './HandoverPage.css'; 
 
